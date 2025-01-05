@@ -59,7 +59,7 @@ public class Network {
      *  or if the "follows" addition failed for some reason, returns false. */
     public boolean addFollowee(String name1, String name2) {
         User a = getUser(name1);
-        if(a==null||getUser(name2)==null){
+        if(a==null||getUser(name2)==null||name1==name2){
             return false;
         }
         
@@ -125,7 +125,7 @@ public class Network {
 
     // Returns a textual description of all the users in this network, and who they follow.
     public String toString() {
-        String text="Network:"+"\n";
+        String text="Network:";
        for(int i=0; i<userCount;i++){
         text =text + "\n"+ users[i].toString();
        }

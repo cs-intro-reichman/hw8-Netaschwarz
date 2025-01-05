@@ -30,7 +30,7 @@ public class Network {
      *  Notice that the method receives a String, and returns a User object. */
     public User getUser(String name) {
         for(int i=0; i<userCount; i++){
-            if(users[i].getName()== name){
+            if((users[i].getName()).toLowerCase()== name.toLowerCase()){
                 return users[i];
             }
             
@@ -64,7 +64,7 @@ public class Network {
         }
         
         if(a.follows(name2)){
-            return true;
+            return false;
         }
         else{
             a.addFollowee(name2);

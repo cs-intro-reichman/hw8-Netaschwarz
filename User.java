@@ -2,6 +2,7 @@
  *  a list of user names that s/he follows, and the list's size. */
  public class User {
 
+
     // Maximum number of users that a user can follow
     static int maxfCount = 10;
 
@@ -43,11 +44,12 @@
 
     /** If this user follows the given name, returns true; otherwise returns false. */
     public boolean follows(String name) {
+        if(name==null){
+            return false;
+        }
+        String name1 = name.substring(0,1).toUpperCase()+name.substring(1);
         for(int i=0; i<this.fCount; i++){
-            if((this.follows[i])== name){
-                return true;
-            }
-            else if((this.follows[i].toLowerCase())== name.toLowerCase()){
+            if((this.follows[i]).equals(name1)){
                 return true;
             }
         }
@@ -73,7 +75,7 @@
     public boolean removeFollowee(String name) {
         if(this.follows(name)){
             for(int i=0; i<this.fCount;i++){
-                if(this.follows[i]== name){
+                if(this.follows[i].equals(name)){
                 this.fCount--;
                     for(int j=i; j<this.fCount;j++){
                         this.follows[j]=this.follows[j+1];
